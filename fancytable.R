@@ -10,15 +10,11 @@ ornt = function(tab, ori){
 fancytable <- function(tab, 
                        orientation = "h",
                        dec = 2){
-  
-
 
     if(is.na(ncol(tab))){
-
         ## Set prop table
         tab.p = ornt(tab, ori = "t")
         J=1
-        
         ## Create matrix output
         output = matrix(NA, ncol =J, nrow=nrow(tab))
         for(r in 1:nrow(tab)){
@@ -30,17 +26,13 @@ fancytable <- function(tab,
         }
         output = as.table(output)
         rownames(output) = rownames(tab)
-        
     }else {
-        
         ## Set prop table
         tab.p = ornt(tab, ori = orientation)
         I = nrow(tab)
         J = ncol(tab)
-        
         ## Create matrix output
         output = matrix(NA, nrow = I, J)
-        
         for(r in 1:I){
             for(c in 1:J){
                 output[r,c] <- paste(tab[r,c],
@@ -54,7 +46,5 @@ fancytable <- function(tab,
         rownames(output) = rownames(tab)
         colnames(output) = colnames(tab)
     }
-  
   return(output)
-  
 }
